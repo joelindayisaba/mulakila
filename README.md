@@ -50,27 +50,6 @@ If you need real-time shared sync across the whole team, that requires adding a 
 
 All geometry was converted from the original shapefiles and reprojected to WGS84 (EPSG:4326). `planted_plots` and `terraces` were lightly simplified (≤5m tolerance, imperceptible at normal zoom) to keep the map responsive — the originals had over 1.2 million vertices combined.
 
-## Hosting it
-
-This is a static site — any static host works. Two free options:
-
-**GitHub Pages** (this repo)
-1. Settings → Pages → Source: Deploy from a branch → branch `main`, folder `/ (root)` → Save
-2. Live in 1–2 minutes at `https://<username>.github.io/<repo-name>/`
-
-**Netlify Drop**
-1. Go to https://app.netlify.com/drop
-2. Drag the whole project folder onto the page — live instantly
-
-## Running locally
-
-Because the app `fetch()`es the `data/*.geojson` files, opening `index.html` directly (double-click) will fail due to browser local-file security rules. Serve it instead:
-
-```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
-```
-
 ## Limitations
 
 - **Requires internet to load fully**: Leaflet's library and map tiles (OpenStreetMap/Esri satellite) are loaded from CDNs, and the basemap won't appear offline. Your own data layers are self-contained in the `data/` folder.
